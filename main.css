@@ -9,4 +9,40 @@
     text-align: center;
 }
 
+p2 {
+    font-size: 15px;
+    color: black;
+    position: relative;
+    text-align: left;
+    text-indent: -10px;
+}
+
+h4 {
+    color: red;
+
+}
+
+button:focus {
+    outline: 0 !important;
+}
+svg {
+    display: block;
+    margin: 0 auto;
+    font: 10px sans-serif;
+}
+.tooltip {
+    position: absolute;
+    font-size: 12px;
+    min-width: 200px;
+    padding: 5px;
+    width:  auto;
+    height: auto;
+    pointer-events: none;
+    background-color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
 /* Include any custom CSS styling here! */

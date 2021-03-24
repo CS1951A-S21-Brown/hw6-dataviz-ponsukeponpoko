@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="main.css"/>
         <!--Feel free to add more CSS files as needed-->
+
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
     </head>
 <body>
@@ -16,11 +17,75 @@
     <div class="row">
         <div class="col-lg-6">
             <div id="graph1"></div>
+            <hr>
             <div id="graph2"></div><br/>
+            <button type="button" class="btn btn-info" onclick="set_data(0)">North America</button>
+            <button type="button" class="btn btn-info" onclick="set_data(1)">EU</button>
+            <button type="button" class="btn btn-info" onclick="set_data(2)">Japan</button>
+            <button type="button" class="btn btn-info" onclick="set_data(3)">Other region</button>
         </div>
+       
         <div class="col-lg-6">
             <div id="graph3"></div>
+            <!--["Action","Sports","Shooter", "Platform", "Misc", "Racing", "Role-Playing", "Fighting", "Simulation", "Puzzle", "Adventure", "Strategy"]-->
+            <p1> Select Genre: </p1>
+            <select onchange="set_genre(this.value)">
+                <option value=0 selected="selected">Action</option>
+                <option value=10 >Adventure</option>
+                <option value=7 >Fighting</option>
+                <option value=3 >Platform</option>
+                <option value=9 >Puzzle</option>
+                <option value=5 >Racing</option>
+                <option value=6 >Role-Playing</option>
+                <option value=2 >Shooter</option>
+                <option value=8 >Simulation</option>
+                <option value=1 >Sports</option>
+                <option value=11 >Strategy</option>
+                <option value=4 >Misc</option>
+            </select>
+            <br>
+            <form id="form" onsubmit="return false;">
+                Select Number of Companies: 
+                <input type="number" min="1" max="50" value="30" id="inputNum" />
+                <input type="submit" onclick="set_count();" />
+            </form>
         </div>
+    </div>
+    <br>
+    <div class="writeup">
+        <h4>Question 1:</h4>
+        <p2>Graph 1: This bar graph represents the top 10 best seller game of all times. <br>
+            Graph 2: This pie chart represents the popular genre in each region (North America, Europe, Japan, and others). 
+            There are buttons (interactive) that you can select a region to see how popular each genre is. Not only that
+            you can view the most popular genre, you can observe second, third etc. popular genre in a given region, along with
+            total sales and percentage of the sales when you hover over the pie chart (tooltip).<br>
+            Graph 3: This is a lolipop chart that represents top &lt;N&gt;th best company of &lt;genre&gt;. This graph is both interactive
+            and contains tooltip. Not only that one can see what the best company is for any given genre, one can also observe the top n 
+            companys' sales ranking of a given genre. </p2>
+        <h4>Question 2:</h4>
+        <p2>1. D3 was helpful in implementing interactive graphs. For instance, my third graph is interactive, 
+            and you can customzie the graph depending on the user input.  <br>
+            2. Additionally, D3 was helpful in utilizing a tooltip to show the value of the elements in the graphs/charts.<br>
+            3. Lastly, D3 was helpful since it allowed me to implement different kind of graphs without struggling much. 
+            Specifically, creating a lolipop chart was definetly easy when utilizing D3. </p2>
+        <h4>Question 3: </h4>
+        <p2>1. If you are trying to make a bar graph, it might be easier to make it using excel, and paste the picture of it. <br>
+            2. If the graph is not interactive, there is no reason to use D3. I think that one of the best thing about D3 is that the graph can be made to be interavtive. <br>
+            3. If you don't want to code in javascript (and avoid it at all cost), you should not use D3.
+        </p2>
+        <h4>Question 4: </h4>
+        <p2>I think my graphs do follow majority of the accessibility guidelines noted in the second website. I am labeling the data points directly,
+            have white spaces between data points, and uses the color that can easily be distinguished by most person (aka not using color combination such as
+            green and red). Furthermore, I am not using complex tools (I just have dropdown and text entry). However, I am utilizing hover overlays, since
+            it was hard for me to directly print the values onto the graph, especially for the pie chart. Although I found a way of connecting a line with each pie in
+            pie chart, I decided not to utilize it since it was hard to read what is written. If possible, I should have tried and made my charts larger so that I
+            can label the charts and have better accessibility. Furthermore, supplying the option of selecting color might be a great idea to support all audience and readers. 
+        </p2>
+        <h4>Question 5:</h4>
+        <p2>I thought about increasing the accessibility by somehow placing the labels beside each data point in all of the graphs/charts. However, I had trouble aligning
+            the texts correctly (and the texts were hard to read), and thus decided not to implement this feature. Since we have a fixed chart size, I decided that for this time,
+            it is inevitable to use hover overlays. Additionally, as stated in the previous question, I should have implemented the option to select color scheme of the graphs. 
+        </p2>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
