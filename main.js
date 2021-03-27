@@ -78,6 +78,10 @@ d3.csv("./data/video_games.csv").then(function(data) {
         .text("Top 10 Best Seller Game");
 });
 
+/**
+ * Below code is for the 2nd graph!
+ */
+
 let regions = ["NA_Sales","EU_Sales","JP_Sales", "Other_Sales"]
 let region_name = ["North America", "Europe", "Japan", "Rest of the World"]
 
@@ -151,6 +155,10 @@ function set_data(index){
     });
 }
 
+/**
+ * Below code is for the 3rd graph!
+ */
+
 
 let svg3 = d3.select("#graph3")
     .append("svg")
@@ -193,14 +201,14 @@ function set_data_2(index, cnt){
             .selectAll("text")
             .style("text-anchor", "middle");
 
-        // Y axis
+        // make Y axis
         var y = d3.scaleBand()
             .range([ 0, graph_3_height-100])
             .domain(data.map(function(d) { return d.key; }))
             .padding(1);
         svg3.append("g").call(d3.axisLeft(y))
 
-        // Lines
+        // make lines
         var path = svg3.selectAll("myline")
             .data(data)
             .enter()
@@ -212,7 +220,7 @@ function set_data_2(index, cnt){
             .attr("stroke", "black")
             .style("stroke-width", "2.5px")
 
-        // Circles
+        // make circles in lolipop
         var path2 = svg3.selectAll("circle")
             .data(data)
             .enter()
@@ -223,6 +231,7 @@ function set_data_2(index, cnt){
             .style("fill", "yellow")
             .attr("stroke", "black")
         
+        //Tooktip (mouse hovering) I have two separate tooltip, since 1 is for line and 1 is for the circle
         path.on('mouseover', function(d){
             tooltip.select('.key').html("Company: " + d.key)
             tooltip.select('.value').html("Sales: " + d.value.toFixed(3));
